@@ -1,6 +1,6 @@
 # ClipR - Video Downloader
 
--A modern web application for downloading and trimming videos from YouTube and Twitter (X). 
+-A web application for downloading and trimming videos from YouTube and Twitter (X). 
 -Built with Next.js frontend and Express.js backend.
 
 **Repository:** [https://github.com/prateekx7/ClipR.git](https://github.com/prateekx7/ClipR.git)
@@ -16,10 +16,25 @@
 
 ## Screenshots
 
-![Paste the URL of the video to download from Youtube or X(Formerly Twitter)](DemoFiles/paste_url_yt_twitter.png)
-![Choose audio, video or both to download](DemoFiles/choose_audio_video_or_both.png)
-![Select the video quality to download](DemoFiles/select_video_quality.png)
-![Pick which part of the video you want to download](DemoFiles/select_start_end_timestamp.png)
+### Application Interface
+
+The following screenshots demonstrate the key features and workflow of ClipR:
+
+**1: Paste Video URL**
+
+<img src="DemoFiles/paste_url_yt_twitter.png" alt="Paste the URL of the video to download from Youtube or X(Formerly Twitter)" width="600">
+
+**2: Choose Download Type**
+
+<img src="DemoFiles/choose_audio_video_or_both.png" alt="Choose audio, video or both to download" width="600">
+
+**3: Select Video Quality**
+
+<img src="DemoFiles/select_video_quality.png" alt="Select the video quality to download" width="600">
+
+**4: Set Timestamps**
+
+<img src="DemoFiles/select_start_end_timestamp.png" alt="Pick which part of the video you want to download" width="600">
 
 ## Prerequisites
 
