@@ -1,48 +1,25 @@
-# 🎬 ClipR - Video Downloader
+# ClipR - Video Downloader
 
-A modern web application for downloading and trimming videos from YouTube and Twitter (X). Built with Next.js frontend and Express.js backend.
+-A modern web application for downloading and trimming videos from YouTube and Twitter (X). 
+-Built with Next.js frontend and Express.js backend.
 
 **Repository:** [https://github.com/prateekx7/ClipR.git](https://github.com/prateekx7/ClipR.git)
 
+
 ## Features
 
-- 📥 Download videos from YouTube and Twitter (X)
-- 🎵 Extract audio only (MP3)
-- 🎬 Download video only or video + audio
-- 📊 Quality selection (Best, 1080p, 720p, 480p)
-- ✂️ Trim videos with start and end timestamps
-- 📈 Real-time download progress tracking
-- 🌓 Dark/Light mode toggle
-- 🎨 Modern and responsive UI
+- Download videos from YouTube and Twitter (X)
+- Extract audio only (MP3 format)
+- Download video only or video with audio
+- Quality selection (Best(chooses the best available quality for that video), 1080p, 720p, 480p)
+- Trim videos with custom start and end timestamps
 
 ## Screenshots
 
-<!-- Add your project screenshots here -->
-<!-- Example format:
-![Main Interface](screenshots/main-interface.png)
-![Dark Mode](screenshots/dark-mode.png)
-![Download Progress](screenshots/download-progress.png)
--->
-
-### How to Add Screenshots
-
-1. Create a `screenshots` folder in the root of your project
-2. Add your screenshot images (PNG, JPG, or GIF format)
-3. Update this section with markdown image syntax:
-   ```markdown
-   ![Paste the URL of the video to download from Youtube or X(Formerly Twitter)](DemoFiles/paste_url_yt_twitter.png)
-   ![Choose audio, video or both to download](DemoFiles/choose_audio_video_or_both.png)
-   ![Select the video quality to download](DemoFiles/select_video_quality.png)
-   ![Pick which part of the video you want to download](DemoFiles/select_start_end_timestamp.png)
-   ```
-
-**Example screenshots you might want to include:**
-- Main interface (light mode)
-- Main interface (dark mode)
-- Download progress indicator
-- Quality selection dropdown
-- Time picker interface
-- Success message after download
+![Paste the URL of the video to download from Youtube or X(Formerly Twitter)](DemoFiles/paste_url_yt_twitter.png)
+![Choose audio, video or both to download](DemoFiles/choose_audio_video_or_both.png)
+![Select the video quality to download](DemoFiles/select_video_quality.png)
+![Pick which part of the video you want to download](DemoFiles/select_start_end_timestamp.png)
 
 ## Prerequisites
 
@@ -134,7 +111,7 @@ http://localhost:3000
 ## Project Structure
 
 ```
-download_YT_TWT_Videos/
+ClipR/
 ├── backend/
 │   ├── index.js              # Express server entry point
 │   ├── routes/
@@ -164,9 +141,10 @@ download_YT_TWT_Videos/
 4. **Set Timestamps** (optional): Set start and end times to trim the video
 5. **Download**: Click the download button and wait for the file to download
 
-## API Endpoints
+## API Documentation
 
 ### POST `/api/download`
+
 Downloads a video based on the provided parameters.
 
 **Request Body:**
@@ -180,21 +158,25 @@ Downloads a video based on the provided parameters.
 }
 ```
 
+**Response:** File download with appropriate Content-Disposition header
+
 ### GET `/api/download/progress`
+
 Server-Sent Events (SSE) endpoint for real-time download progress.
 
 **Query Parameters:**
-- `url`: Video URL
-- `type`: Download type (normal, video, audio)
-- `quality`: Video quality (best, 1080, 720, 480)
-- `start`: Start timestamp (HH:MM:SS)
-- `end`: End timestamp (HH:MM:SS)
+- `url`: Video URL (required)
+- `type`: Download type - `normal`, `video`, or `audio` (required)
+- `quality`: Video quality - `best`, `1080`, `720`, or `480` (optional)
+- `start`: Start timestamp in format `HH:MM:SS` (optional)
+- `end`: End timestamp in format `HH:MM:SS` (optional)
 
-## Technologies Used
+**Response:** Server-Sent Events stream with progress percentage (0-100)
+
+## Technology Stack
 
 ### Backend
 - **Express.js** - Web framework
-- **CORS** - Cross-origin resource sharing
 - **yt-dlp** - Video downloader (system dependency)
 
 ### Frontend
@@ -219,11 +201,9 @@ Server-Sent Events (SSE) endpoint for real-time download progress.
 - Check CORS settings if accessing from a different origin
 - Verify the API_BASE URL in `frontend/app/page.tsx`
 
-## Notes
+## Important Notes
 
 - Downloaded files are temporarily stored in `backend/temp/` and are automatically deleted after download
 - The application requires an active internet connection
 - Some videos may be restricted by the platform's terms of service
-
-
-
+- Ensure compliance with YouTube and Twitter terms of service when using this application
